@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idades</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            font: 18pt normal Arial;
+            background-color: rgb(59, 129, 209);
+            color: white;
+        }
+        main{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main > h1{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        main > div#caixa {
+            flex-grow: 0;
+            line-height: 50px;
+            background-color: white;
+            color: black;
+            padding: 25px 30px 15px 15px;
+            border-radius: 15px;
+            width: 55vw;
+        }
+        
+        div#caixa input#ano_nasc {
+            height: 25px;
+        }
+
+        div#caixa #botao {
+            height: 30px;
+            width: 60px;
+        }
+
+        #footer{
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <main>
+        <h1>Verificador de idades</h1>
+        <div id="caixa">
+            Ano de nascimento: <input type="number" name="ano" id="ano_nasc"><br>
+
+            Sexo: <input type="radio" name="sexo" id="opcao1" value="masculino">
+            <label for="opcao1">Masculino</label>
+            <input type="radio" name="sexo" id="opcao2" value="feminino">
+            <label for="opcao2">Feminino</label><br>
+
+            <input type="button" value="Verificar" id="botao" onclick="analise()">
+
+            <p id="frase_u">Preencha os dados acima para ver o resultado!</p>
+        </div>
+        <p id="footer"><i>@Curso em Video</i></p>
+    </main>
+
+    <script>
+        var time = new Date
+        var ano = time.getFullYear()
+        var frase = window.document.getElementById('frase_u')
+        
+        if (sexo_valor) {
+                if(sexo_valor == 'masculino'){
+                    genero = 'homem'
+                }else{
+                    genero = 'mulher'
+                }
+            }else{
+                window.alert('ATENÇÃO - Campo de sexo em branco')
+            }
+
+        function analise(){
+            var idade_elemento = window.document.getElementById('ano_nasc')
+            var idade = ano - idade_elemento.value
+            var sexo_u = window.document.querySelector('input[name="sexo"]:checked')
+            var sexo_valor = sexo_u.value
+
+            
+            
+
+        }
+    </script>
+</body>
+</html>

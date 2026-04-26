@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+</head>
+<body>
+    <div id="botao">Clicou</div>
+    <script>
+        q = window.document.getElementById('botao') 
+        q.addEventListener('click', clicou)
+        q.addEventListener('onmouseenter', entrar)
+        q.addEventListener('onmouseout', sair)
+
+
+        function clicou() {
+            q.innerText = 'clicou'
+            q.style.background = 'blue'
+        }
+        function entrar() {
+            q.innerText = 'Entrou'
+        }
+        function sair(){
+            q.innerText = 'Saiu'
+            q.style.background = 'green'
+        }
+    </script>
+</body>
+</html>

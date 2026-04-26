@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRF</title>
+</head>
+<body>
+    <h1>Nacionalidade</h1>
+    Qual a sua nacionalidade: <input type="text" name="nacionalidade" id="nacionalidade">
+
+    <input type="button" value="Checar" onclick="analise()">
+
+    <div id="mensagem">Resultado</div>
+
+    <script>
+        function analise(){
+            var nacio = window.document.querySelector('input#nacionalidade')
+            var v_nacio = nacio.value.toUpperCase()
+            var mensagem = window.document.getElementById('mensagem')
+            if( v_nacio == 'BRASIL'){
+                mensagem.innerHTML = `<p>Vivendo no ${v_nacio} você é <strong>BRASILEIRO</strong></p>`
+            }else{
+                mensagem.innerHTML = `<p>Vivendo em ${v_nacio} você é <strong>ESTRANGEIRO</strong></p>`
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
