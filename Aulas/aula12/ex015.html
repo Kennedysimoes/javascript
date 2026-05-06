@@ -29,13 +29,15 @@
         }
 
         main > div#caixa {
-            flex-grow: 0;
             line-height: 50px;
             background-color: white;
             color: black;
             padding: 25px 30px 15px 15px;
             border-radius: 15px;
             width: 55vw;
+            max-width: 800px;
+            min-width: 500px;
+            
         }
         
         div#caixa input#ano_nasc {
@@ -46,15 +48,30 @@
             height: 30px;
             width: 60px;
         }
+        #frase_u2 {
+            text-align: center;
+        }
+
+        #photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            margin: auto;
+        }
 
         #footer{
             margin-top: 20px;
         }
 
+        
+
 
     </style>
 </head>
-<body>
+<body id="fundo_u">
     
     <main>
         <h1>Verificador de idades</h1>
@@ -78,26 +95,81 @@
         var ano = time.getFullYear()
         var frase = window.document.getElementById('frase_u')
         
-        if (sexo_valor) {
-                if(sexo_valor == 'masculino'){
-                    genero = 'homem'
-                }else{
-                    genero = 'mulher'
-                }
-            }else{
-                window.alert('ATENÇÃO - Campo de sexo em branco')
-            }
 
         function analise(){
+            var fundo = window.document.getElementById('fundo_u')
             var idade_elemento = window.document.getElementById('ano_nasc')
-            var idade = ano - idade_elemento.value
             var sexo_u = window.document.querySelector('input[name="sexo"]:checked')
-            var sexo_valor = sexo_u.value
 
-            
-            
+            var foto = window.document.createElement('img')
+            foto.setAttribute('id', 'photo')
+            foto.setAttribute('src', 'imagens/menino_idoso.jpg')
 
+            if (idade_elemento.value.trim().length != 0 && Number(idade_elemento.value) > 0 && idade_elemento.value <= ano){
+                var idade = ano - Number(idade_elemento.value)
+                if (sexo_u != null){
+                    var sexo_valor = sexo_u.value
+                    if(sexo_valor === 'masculino'){
+                        var genero = 'homem'
+                        frase.innerHTML = `<p id="frase_u2">Detectamos ${genero} com ${idade} anos <br></p>`
+                        frase.appendChild(foto) 
+                        //Homem bebê
+                        if (idade < 3){
+                            foto.src = 'imagens/menino_bebe.jpg'
+                        //Homem criança    
+                        }else if (idade <= 10 ) {
+                            foto.src = 'imagens/menino_criança.jpg'
+                        //Homem adolescente
+                        }else if (idade > 10 && idade <= 18 ){
+                            foto.src = 'imagens/menino_adolescente.jpg'
+                        //Homem adulto
+                        }else if (idade > 18 && idade <= 40){
+                            foto.src = 'imagens/menino_adulto.jpg'
+                        //Homem idoso
+                        }else if (idade > 40 && idade <= 110){
+                            foto.src = 'imagens/menino_idoso.jpg'
+                        //Homem morto
+                        }else{
+                            foto.src = 'imagens/morto.jpg'
+                        }
+                    }else{
+                        var genero = 'mulher'
+                        frase.innerHTML = `<p id="frase_u2">Detectamos ${genero} com ${idade} anos <br></p>`
+                        frase.appendChild(foto) 
+                        //Mulher bebê
+                        if (idade < 3){
+                            foto.src = 'imagens/menina_bebe.jpg'
+                        //Mulher criança    
+                        }else if (idade <= 10) {
+                            foto.src = 'imagens/menina_criança.jpeg'
+                        //Mulher adolescente
+                        }else if (idade > 10 && idade <= 18 ){
+                            foto.src = 'imagens/menina_adolescente.jpg'
+                        //Mulher adulto
+                        }else if (idade > 18 && idade <= 40){
+                            foto.src = 'imagens/menina_adulta.jpg'
+                        //Mulher idoso
+                        }else if (idade > 40 && idade <= 110){
+                            foto.src = 'imagens/menina_idosa.jpg'
+                        //Mulher morto
+                        }else{
+                            foto.src = 'imagens/morto.jpg'
+                        }
+                        }    
+                }else{
+                    window.alert('ERRO - ESCOLHA UMA OPÇÃO DE SEXO')
+                }
+            }else{
+                window.alert('ERRO digite um valor válido no Nascimento')
+            }
         }
+        var c = 10; 
+        do {     
+            console.log("Isso vai aparecer uma vez!");    
+            c++; } 
+        while (c < 5); 
+        // Resultado: Ele imprime a frase e só depois percebe que 11 não é menor que 5.
+
     </script>
 </body>
 </html>

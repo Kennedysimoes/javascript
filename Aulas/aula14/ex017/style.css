@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #3a80d2;
+    font-size: 1.4rem;
+    font-family: sans-serif;
+}
+
+header {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: white;
+}
+
+main {
+    background-color: white;
+    width: 70vw;
+    max-width: 600px;
+    min-width: 400px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 30px 10px 20px 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.39);
+}
+
+main > #num_elem {
+    margin-bottom: 25px;
+    height: 22px;
+    border-radius: 5px;
+}
+
+main > #botao_elem {
+    height: 25px;
+    width: 110px;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
